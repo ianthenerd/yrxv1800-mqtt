@@ -3,11 +3,11 @@ mqtt:
   port: 1883
   username: 'mqtt-user'
   password: ''
-  topic_prefix: 'yamaha-rxv1500'
-  client_id: 'rxv1500-mqtt'
+  topic_prefix: 'yamaha-rxv1800'
+  client_id: 'rxv1800-mqtt'
   discovery:
     topic_prefix: 'homeassistant'
-    unique_id: 'yamaha-rxv1500'
+    unique_id: 'yamaha-rxv1800'
     #via_device_id: ''
 
 serial:

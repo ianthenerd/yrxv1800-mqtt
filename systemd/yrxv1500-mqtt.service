@@ -1,10 +1,10 @@
 [Unit]
-Description=Yamaha RX-V1500 MQTT Controller
+Description=Yamaha RX-V1800 MQTT Controller
 
 [Service]
 Type=simple
-WorkingDirectory=/srv/yrxv1500-mqtt
-ExecStart=python3 /srv/yrxv1500-mqtt/controller.py
+WorkingDirectory=/srv/yrxv1800-mqtt
+ExecStart=python3 /srv/yrxv1800-mqtt/controller.py
 
 [Install]
 WantedBy=multi-user.target

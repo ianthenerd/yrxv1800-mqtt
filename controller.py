@@ -1,6 +1,6 @@
 #
 # YamahaControl App
-# Control a Yamaha RX-V1500 receiver connected via RS232 using MQTT
+# Control a Yamaha RX-V1800 receiver connected via RS232 using MQTT
 #
 
 import logging
@@ -68,7 +68,7 @@ class Config:
         if not hasattr(self.mqtt, "host"):
             raise ValueError("MQTT broker not defined!")
 
-        self.mqtt.__dict__.setdefault("client_id", "rxv1500-mqtt")
+        self.mqtt.__dict__.setdefault("client_id", "rxv1800-mqtt")
         self.mqtt.__dict__.setdefault("topic_prefix", "")
         self.mqtt.__dict__.setdefault("port", 1883)
         self.mqtt.__dict__.setdefault("username", "")
@@ -80,7 +80,7 @@ class Config:
         self.mqtt.discovery = SimpleNamespace(
             **self.mqtt.discovery if hasattr(self.mqtt, "discovery") else {})
         self.mqtt.discovery.__dict__.setdefault(
-            "unique_id", "yamaha-rxv1500-1")
+            "unique_id", "yamaha-rxv1800-1")
         self.mqtt.discovery.__dict__.setdefault("via_device_id", "")
         self.mqtt.discovery.__dict__.setdefault(
             "topic_prefix", "homeassistant")
@@ -287,8 +287,8 @@ class YamahaControl:
                 "device": {
                     "identifiers": str(self.controller.config.mqtt.discovery.unique_id),
                     "manufacturer": "Yamaha",
-                    "model": "RX-V1500",
-                    "name": "Yamaha RX-V1500 A/V Receiver"
+                    "model": "RX-V1800",
+                    "name": "Yamaha RX-V1800 A/V Receiver"
                 }
             }
             if icon:
@@ -682,7 +682,7 @@ class YamahaControl:
         logging.debug("Closed event loop.")
 
     async def _setup_yrx_event_list(self):
-        # Define possible events/messages from RX-V1500 and initialize Entity Objects
+        # Define possible events/messages from RX-V1800 and initialize Entity Objects
         self.yrx_event_list = {
             '00': {
                 '_content': 'NoGuard',

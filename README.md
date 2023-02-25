@@ -1,14 +1,14 @@
-# YRXV1500-MQTT
-## Control your Yamaha RX-V1500 via MQTT
+# YRXV1800-MQTT
+## Control your Yamaha RX-V1800 via MQTT
 
-A python3 application that enables remote control of a Yamaha RX-V1500 A/V amplifier via MQTT. The script can run on a Raspberry Pi or any similar device, which is connected to a RX-V1500 amplivier via a RS232 serial connection. YRXV1500-MQTT connects to your exisiting MQTT broker, subscribes for command topics and publishes state changes, whenever any amplifier entity state is changed (e.g., one of the amplifier's buttons is pressed).
+A python3 application that enables remote control of a Yamaha RX-V1800 A/V amplifier via MQTT. The script can run on a Raspberry Pi or any similar device, which is connected to a RX-V1800 amplivier via a RS232 serial connection. YRXV1800-MQTT connects to your exisiting MQTT broker, subscribes for command topics and publishes state changes, whenever any amplifier entity state is changed (e.g., one of the amplifier's buttons is pressed).
 To simplify the setup, the application also supports MQTT auto discovery for [HomeAssistant](https://home-assistant.io).  
 
-The script was tested on a Raspberry Pi running Raspian. Currently, not all RX-V1500 entities can be read or set.
+The script was tested on a Raspberry Pi running Raspian. Currently, not all RX-V1800 entities can be read or set.
 Use it on your own risk! The tool is provided as-is, with no guarantee that the RS232 commands work or don't damage your device.
 
 ### Requirements
-- Yamaha RX-V1500 A/V-Reciever
+- Yamaha RX-V1800 A/V-Reciever
 - Raspberry Pi (or similar) with RS232 interface or USB<->RS232 converter
 - Python3
 - Python3 library `pyyaml`, `asyncio`, `pyserial-asyncio`, and `paho-mqtt` (will be installed by this tool on startup)
@@ -22,15 +22,15 @@ Easy:
 
 As service using systemd:  
 1. Same as *Easy*, but don't run manually.
-2. Edit file `systemd/yrxv1500-mqtt.service` and change working directory and file path of *controller.py* to your needs (defaults to `/srv/yrxv1500-mqtt/controller.py`)
+2. Edit file `systemd/yrxv1800-mqtt.service` and change working directory and file path of *controller.py* to your needs (defaults to `/srv/yrxv1800-mqtt/controller.py`)
 3. Link and enable systemd config:
 ```
-sudo ln -s /srv/yrxv1500-mqtt/systemd/yrxv1500-mqtt.service /etc/systemd/system/yrxv1500-mqtt.service
+sudo ln -s /srv/yrxv1800-mqtt/systemd/yrxv1800-mqtt.service /etc/systemd/system/yrxv1800-mqtt.service
 sudo systemctl daemon-reload
-sudo systemctl enable yrxv1500-mqtt.service
-sudo systemctl start yrxv1500-mqtt.service
+sudo systemctl enable yrxv1800-mqtt.service
+sudo systemctl start yrxv1800-mqtt.service
 ```
-4. Verify service status `sudo systemctl status yrxv1500-mqtt.service`
+4. Verify service status `sudo systemctl status yrxv1800-mqtt.service`
 
 
 ## MQTT topics
